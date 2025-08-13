@@ -9,7 +9,7 @@ fn struct Vec<T> {
 // a &Vec<'a static str> couldn't be used where a &Vec<'a str> is expected bcs of the details on variance
 // the std lib uses Unique<T> in place of *mut T when it has a raw pointer to an allocation that it owns
 // Unique is unstable, so we'd like not to use it if possible.
-// As a recap, Unique is a Wrapper around a raw ppointer that declares that:
+// As a recap, Unique is a Wrapper around a raw pointer that declares that:
 // - We are covariant over T
 // - We are Send/Sync if T is Send/Sync
 // - Our pointer is never null (so Option<Vec<T>> is null-pointer-optimized)
